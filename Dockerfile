@@ -18,9 +18,8 @@ RUN \
 USER node
 
 RUN \
-   wget https://github.com/cnpm/cnpmjs.org/archive/${CNPMJS_ORG_VERSION}.tar.gz && \
-  tar xvzf ${CNPMJS_ORG_VERSION}.tar.gz -C /var/app && \
-  rm -f ${CNPMJS_ORG_VERSION}.tar.gz && \
+   wget -P /tmp/ https://github.com/cnpm/cnpmjs.org/archive/${CNPMJS_ORG_VERSION}.tar.gz && \
+  tar xvzf /tmp/${CNPMJS_ORG_VERSION}.tar.gz -C /var/app && \
   mv /var/app/cnpmjs.org-${CNPMJS_ORG_VERSION} ${APPDIR}
 
 WORKDIR ${APPDIR}
